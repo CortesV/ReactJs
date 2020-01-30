@@ -11,16 +11,13 @@ export class SavingForm extends Component {
             password: '',
             id: ''
         };
-
-        this.handleEmailChange = this.handleEmailChange.bind(this);
-        this.handlePasswordChange = this.handlePasswordChange.bind(this);
     }
 
-    handleEmailChange(event) {
+    handleEmailChange = (event) => {
         this.setState({email: event.target.value})
     }
 
-    handlePasswordChange(event) {
+    handlePasswordChange = (event) => {
         this.setState({password: event.target.value})
     }
 

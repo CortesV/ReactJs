@@ -11,11 +11,9 @@ export class RetrievingForm extends Component {
             user: '',
             displayData: false
         };
-
-        this.handleIdChange = this.handleIdChange.bind(this);
     }
 
-    handleIdChange(event) {
+    handleIdChange = (event) => {
         this.setState({id: event.target.value})
     }
 
