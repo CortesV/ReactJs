@@ -1,0 +1,14 @@
+.generalForm {
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 155px;
+    height: 155px;
+}
+
+.formBlock {
+    margin-bottom: 10px;
+}
+
+.formButton {
+    text-align: center;
+}
