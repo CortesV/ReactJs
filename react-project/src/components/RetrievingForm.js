@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import './Form.css';
 
 export class RetrievingForm extends Component {
@@ -19,11 +20,12 @@ export class RetrievingForm extends Component {
 
     getUser = async (event) => {
         event.preventDefault();
-        const apiUrl = await fetch(`http://localhost:8080/rest/v1/user/${this.state.id}`);
-        const data = await apiUrl.json();
-        console.log(data);
-        this.setState({user: data});
-        alert(this.state.user);
+        await axios
+            .get(`http://localhost:8080/rest/v1/user/${this.state.id}`)
+            .then(response => {
+                this.setState({user: response.data});
+            });
+        console.log(this.state.user);
     }
 
     render() {

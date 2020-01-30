@@ -9,12 +9,11 @@ export class SavingForm extends Component {
         this.state = {
             email: '',
             password: '',
-            id: 0
+            id: ''
         };
 
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleEmailChange(event) {
@@ -25,24 +24,19 @@ export class SavingForm extends Component {
         this.setState({password: event.target.value})
     }
 
-    handleSubmit(event) {
+    createUser = async (event) => {
         event.preventDefault();
-        axios
-            .post('http://localhost:8080/rest/v1/user/', this.state)
+        await axios.post('http://localhost:8080/rest/v1/user/', this.state)
             .then(response => {
-                console.log(response);
-                this.setState({id: response.data})
-            })
-            .catch(error => {
-                console.log(error);
+                this.setState({id: response.data.id});
             });
-        alert(`User have created with id - ${this.state.id}`)
+        console.log(`User have created with id - ${this.state.id}`)
     }
 
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit} className='generalForm'>
+                <form onSubmit={this.createUser} className='generalForm'>
                     <div className='formBlock'>
                         <div>
                             <label>Email: </label>
