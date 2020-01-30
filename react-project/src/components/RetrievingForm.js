@@ -7,7 +7,7 @@ export class RetrievingForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: 0,
+            id: '',
             user: ''
         };
 
