@@ -45,23 +45,27 @@ export class RetrievingForm extends Component {
                         <input type='submit' value='Submit'/>
                     </div>
                 </form>
-                {this.state.displayData ? this.showUser() : <span/>}
+                {
+                   this.showUser()
+                }
             </div>
         );
     }
 
     showUser() {
-        return (
-            <div className='user'>
-                <div className="userData">
-                    <label>Id: </label>
-                    <label>{this.state.user.id}</label>
+        if (this.state.displayData) {
+            return (
+                <div className='user'>
+                    <div className="userData">
+                        <label>Id: </label>
+                        <label>{this.state.user.id}</label>
+                    </div>
+                    <div className="userData">
+                        <label>Email: </label>
+                        <label>{this.state.user.email}</label>
+                    </div>
                 </div>
-                <div className="userData">
-                    <label>Email: </label>
-                    <label>{this.state.user.email}</label>
-                </div>
-            </div>
-        );
+            );
+        }
     }
 }
