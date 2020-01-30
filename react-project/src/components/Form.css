@@ -2,7 +2,6 @@
     margin-top: 15px;
     margin-left: 10px;
     width: 155px;
-    height: 155px;
 }
 
 .formBlock {
@@ -11,4 +10,14 @@
 
 .formButton {
     text-align: center;
+}
+
+.user {
+    margin-top: 15px;
+    margin-left: 10px;
+    float: left;
+}
+
+.userData {
+    margin-bottom: 10px;
 }

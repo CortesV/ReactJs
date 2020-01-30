@@ -8,7 +8,8 @@ export class RetrievingForm extends Component {
         super(props);
         this.state = {
             id: '',
-            user: ''
+            user: '',
+            displayData: false
         };
 
         this.handleIdChange = this.handleIdChange.bind(this);
@@ -26,7 +27,9 @@ export class RetrievingForm extends Component {
                 this.setState({user: response.data});
             });
         console.log(this.state.user);
+        this.setState({displayData: true});
     }
+
 
     render() {
         return (
@@ -42,9 +45,23 @@ export class RetrievingForm extends Component {
                         <input type='submit' value='Submit'/>
                     </div>
                 </form>
+                {this.state.displayData ? this.showUser() : <span/>}
             </div>
         );
     }
 
-
+    showUser() {
+        return (
+            <div className='user'>
+                <div className="userData">
+                    <label>Id: </label>
+                    <label>{this.state.user.id}</label>
+                </div>
+                <div className="userData">
+                    <label>Email: </label>
+                    <label>{this.state.user.email}</label>
+                </div>
+            </div>
+        );
+    }
 }

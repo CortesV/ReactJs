@@ -31,6 +31,7 @@ export class SavingForm extends Component {
                 this.setState({id: response.data.id});
             });
         console.log(`User have created with id - ${this.state.id}`)
+        alert(`User have created with id - ${this.state.id}`)
     }
 
     render() {
