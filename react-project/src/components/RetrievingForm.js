@@ -37,7 +37,7 @@ export class RetrievingForm extends Component {
                 <form onSubmit={this.getUser} className='generalForm'>
                     <div className='formBlock'>
                         <div>
-                            <label>Get user</label>
+                            <label>Get user:</label>
                         </div>
                         <input type='text' value={this.state.id} onChange={this.handleIdChange}/>
                     </div>
