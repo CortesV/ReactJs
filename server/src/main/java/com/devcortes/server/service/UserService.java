@@ -8,6 +8,7 @@ import com.devcortes.server.components.repository.UserRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -24,7 +25,8 @@ public class UserService {
         if (Objects.isNull(userDto) || StringUtils.isBlank(userDto.getEmail()) || StringUtils.isBlank(userDto.getPassword())) {
             throw new EntityEmptyException("Some of required fields are empty.");
         }
-        User user = new User(userDto.getEmail(), userDto.getPassword());
+        String encryptedPassword = Base64.getEncoder().encodeToString(userDto.getPassword().getBytes());
+        User user = new User(userDto.getEmail(), encryptedPassword);
         User persistUser = this.userRepository.save(user);
         return new UserDto(persistUser.getId());
     }
