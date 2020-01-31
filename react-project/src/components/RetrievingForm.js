@@ -23,9 +23,12 @@ export class RetrievingForm extends Component {
             .get(`http://localhost:8080/rest/v1/user/${this.state.id}`)
             .then(response => {
                 this.setState({user: response.data});
+                this.setState({displayData: true});
+                console.log(this.state.user);
+            })
+            .catch(reason => {
+                alert(`Not found user with id - ${this.state.id}`)
             });
-        console.log(this.state.user);
-        this.setState({displayData: true});
     }
 
 
